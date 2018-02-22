@@ -6,7 +6,8 @@ class GRecaptcha extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            buttonEnabled: false
+            buttonEnabled: false,
+            textVal: ''
         }
         this.onChange = this.onChange.bind(this);
     }
@@ -26,7 +27,8 @@ class GRecaptcha extends React.Component {
                    }}>
                    <input
                        type='text'
-                       value='sometext'
+                       value={this.state.textVal}
+                       onChange={e => this.setState({textVal: e.target.value})}
                    />
                     <ReCAPTCHA
                         ref="recaptcha"
